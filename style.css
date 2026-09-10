@@ -1,0 +1,55 @@
+/* تفاصيل بصرية دقيقة لا تغطيها Tailwind مباشرة */
+
+html {
+  scroll-behavior: smooth;
+}
+
+#compass-needle {
+  animation: settle 2.4s cubic-bezier(0.16, 1, 0.3, 1) 1;
+}
+
+@keyframes settle {
+  0%   { transform: rotate(-35deg); }
+  55%  { transform: rotate(8deg); }
+  100% { transform: rotate(0deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #compass-needle { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* حالة فارغة: flex فقط عند إزالة hidden عبر JS */
+#empty-state:not(.hidden) {
+  display: flex;
+}
+
+/* شريط تمرير أنيق لقوائم الفلاتر على الجوال */
+#city-filters::-webkit-scrollbar {
+  height: 4px;
+}
+#city-filters::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+}
+
+/* تركيز واضح لأغراض إتاحة الوصول */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #2BB3A3;
+  outline-offset: 2px;
+}
+
+/* بطاقة الفرصة */
+.opp-card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0));
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.opp-card:hover {
+  border-color: rgba(43,179,163,0.35);
+  transform: translateY(-2px);
+}
